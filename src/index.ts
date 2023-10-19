@@ -273,15 +273,15 @@ export async function main() {
     // await page.click(constants.nextButtonSelector);
 
     // Get the end of survey element's text
-    await page.waitForSelector(constants.endSelector);
-    await sleep(constants.safetyDelay);
+    // await page.waitForSelector(constants.endSelector);
+    // await sleep(constants.safetyDelay);
     
-    await page.$(constants.endSelector).then(async element => {
-        if (element) console.log((await element.getProperty("innerText")).toString());
-    });
+    // await page.$(constants.endSelector).then(async element => {
+    //     if (element) console.log((await element.getProperty("innerText")).toString());
+    // });
 
-    await page.close();
-    await browser.close();
+    // await page.close();
+    // await browser.close();
 }
 
 main();
