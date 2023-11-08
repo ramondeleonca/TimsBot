@@ -11,7 +11,7 @@
   "dependencies": {
     "lodash": "^4.17.21",
     "prompts": "^2.4.2",
-    "puppeteer": "^21.1.0",
+    "puppeteer": "^21.5.0",
     "sleep-promise": "^9.1.0"
   },
   "devDependencies": {
