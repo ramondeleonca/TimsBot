@@ -267,7 +267,7 @@ export async function main() {
     await sleep(constants.safetyDelay);
 
 
-    await page.click(constants.q25AnswerSelector);
+    await page.click(constants.q25Selector);
 
     await sleep(constants.safetyDelay);
     await page.click(constants.nextButtonSelector);
