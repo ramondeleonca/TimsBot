@@ -92,7 +92,7 @@ export default {
     q24AnswerSelector: "label[for=\"QR~QID65~1\"]",
 
     q25Selector: "#QID68",
-    q25AnswerSelector: "label[for=\"QR~QID68~2\"]",
+    q25AnswerSelector: "#QID68-2-label",
 
     endSelector: "#EndOfSurvey",
 

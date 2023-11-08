@@ -264,10 +264,8 @@ export async function main() {
 
     // Answer the next question
     await page.waitForSelector(constants.q25Selector);
-    await sleep(constants.safetyDelay);
-
-
-    await page.click(constants.q25Selector);
+    await page.waitForSelector(constants.q25AnswerSelector);
+    await page.click(constants.q25AnswerSelector);
 
     await sleep(constants.safetyDelay);
     await page.click(constants.nextButtonSelector);
@@ -276,12 +274,24 @@ export async function main() {
     await page.waitForSelector(constants.endSelector);
     await sleep(constants.safetyDelay);
     
-    await page.$(constants.endSelector).then(async element => {
-        if (element) console.log((await element.getProperty("innerText")).toString());
-    });
+    const endText = await page.$(constants.endSelector);
+
+    if (endText) {
+        const text = (await endText.getProperty("innerText")).toString();
+        
+        await page.close();
+        await browser.close();
+        
+        const code = text.match(/[A-Z]{2}\d{4,}/gim)?.[0];
+
+        if (code && code?.length > 0) return code;
+        else return null;
+    };
 
     await page.close();
     await browser.close();
+
+    return null;
 }
 
-main();
+main().then(console.log);
